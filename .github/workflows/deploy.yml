@@ -31,8 +31,8 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           port: 2200
           script: |
-            echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker stop taufikanindhita/todosrandom
-            echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker rm taufikanindhita/todosrandom
+            echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker stop todosrandom
+            echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker rm todosrandom
             echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker container prune
             echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker pull taufikanindhita/todosrandom:latest
-            echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker run --pull always -d -p 3300:3300 taufikanindhita/todosrandom
+            echo "${{ secrets.VPS_PASSWORD }}" | sudo -S docker run -d -p 3300:3300 --name todosrandom taufikanindhita/todosrandom
