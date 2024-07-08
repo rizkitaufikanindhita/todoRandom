@@ -24,7 +24,7 @@ app.get('/', (_req: Request, res: Response) => {
   }
   res.json({
     msg: listTodo,
-    data: "data received success"
+    data: "Data fetched successfully"
   })
 })
 
