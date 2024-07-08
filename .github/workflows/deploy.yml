@@ -21,7 +21,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: taufikanindhita/todosrandom:latest
+          tags: taufikanindhita/todosrandom
       
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
@@ -31,7 +31,7 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 2200
           script: |
-            sudo docker pull taufikanindhita/todosrandom:latest
+            sudo docker pull taufikanindhita/todosrandom
             sudo docker stop taufikanindhita/todosrandom || true
             sudo docker rm taufikanindhita/todosrandom || true
-            sudo docker run -d -p 3300:3300 --name todosrandom taufikanindhita/todosrandom:latest
+            sudo docker run -d -p 3300:3300 taufikanindhita/todosrandom
