@@ -24,7 +24,8 @@ app.get('/', (_req: Request, res: Response) => {
   }
   res.json({
     msg: listTodo,
-    data: "Data fetched successfully"
+    data: "Data fetched successfully",
+    about: "Todo task random"
   })
 })
 
